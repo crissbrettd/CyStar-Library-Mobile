@@ -8,16 +8,26 @@
   export let description;
   export let isStarted;
   export let isCompleted;
+  export let currentPage;
 
-  let isExpanded = false;
   const dispatch = createEventDispatcher();
 
-  function showHideItemDetails() {
-    isExpanded = !isExpanded;
+  function editBook() {
+    dispatch('clickBook', {
+      name: name,
+      isbn: isbn,
+      author: author,
+      length: length,
+      genre: genre,
+      description: description,
+      isStarted: isStarted,
+      isCompleted: isCompleted,
+      currentPage: currentPage
+      })
   }
 </script>
 
-<div on:click={showHideItemDetails}>
+<div on:click={editBook}>
   <p>{name}</p>
 </div>
 

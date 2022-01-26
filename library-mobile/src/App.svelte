@@ -3,50 +3,38 @@
   import BookList from './BookList.svelte';
   import Form from './EditBook.svelte';
   import Popout from './Popout.svelte';
+import WishList from './WishList.svelte';
   
   let shouldShowBookList = false;
+  let shouldShowWishList = false;
 
   function showBookList() {
     shouldShowBookList = !shouldShowBookList;
   }
 
-  // function handleItemAdd(event) {
-  //     itemList = [...itemList, { 
-  //     id: itemList.length,
-  //     location: event.detail.location,
-  //     total: event.detail.total,
-  //     category: event.detail.category
-  //     }]
-  //     shouldShowForm = event.detail.showForm;
-  // }
+  function showWishList() {
+    shouldShowWishList = !shouldShowWishList;
+  }
 
-  function handleCloseList()  {
+  function handleOwnedBookSelected(event)  {
+    let selectedBook = event.detail
+    console.log(selectedBook)
     showBookList()
   }
 
-  // function handleBookClick(event) {
-  //     console.log(itemList);
-  //     itemList = itemList
-  //         .filter((element) => {return element.detail.id !== event.detail.id})
-  // }
-
-  // function handleRemovePurchase(event) {
-  //     console.log(itemList);
-  //     itemList = itemList
-  //         .filter((element) => {return element.detail.id !== event.detail.id})
-  // }
-
-  function savePurchaseList() {
-      const json = JSON.stringify(itemList, null, 4);
-      localStorage.setItem("purchase-list", json);
-      console.log("saved")
+  function handleWishListBookSelected(event)  {
+    let selectedBook = event.detail
+    console.log(selectedBook)
+    showWishList()
   }
 
-  function clearPurchaseList() {
-      localStorage.setItem("purchase-list", []);
-      itemList = []
+  function handleBookListClosed(event)  {
+    showBookList()
   }
 
+  function handleWishListClosed(event)  {
+    showWishList()
+  }
 
 </script>
 
@@ -58,11 +46,11 @@
                 Update a book
             </button>
             <br />
-            <button class="mainButton" on:click={savePurchaseList}>
-                View book list
+            <button class="mainButton" on:click={showBookList}>
+                View full book list
             </button>
             <br />
-            <button class="mainButton" on:click={clearPurchaseList}>
+            <button class="mainButton" on:click={showWishList}>
                 Browse wishlist
             </button>
         </div>
@@ -70,9 +58,14 @@
     
     {#if shouldShowBookList}
         <Popout>
-            <BookList on:closeForm={handleCloseList}/>
+            <BookList on:bookSelected={handleOwnedBookSelected} on:listClosed={handleBookListClosed} />
         </Popout>
     {/if}
+    {#if shouldShowWishList}
+    <Popout>
+        <WishList on:bookSelected={handleWishListBookSelected} on:listClosed={handleWishListClosed} />
+    </Popout>
+{/if}
 </main>
 
 
