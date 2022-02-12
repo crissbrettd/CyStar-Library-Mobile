@@ -2,7 +2,8 @@
   import { createEventDispatcher } from 'svelte';
   export let name;
   export let isbn;
-  export let author;
+  export let authorFirstName;
+  export let authorLastName;
   export let length;
   export let genre;
   export let description;
@@ -16,7 +17,8 @@
     dispatch('clickBook', {
       name: name,
       isbn: isbn,
-      author: author,
+      authorFirstName: authorFirstName,
+      authorLastName: authorLastName,
       length: length,
       genre: genre,
       description: description,

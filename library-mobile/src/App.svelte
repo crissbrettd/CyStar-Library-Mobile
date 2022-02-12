@@ -3,37 +3,50 @@
   import BookList from './BookList.svelte';
   import Form from './EditBook.svelte';
   import Popout from './Popout.svelte';
-import WishList from './WishList.svelte';
-  
-  let shouldShowBookList = false;
+  import WishList from './WishList.svelte';
+  let shouldShowFullBookList = false;
+  let shouldShowActiveBookList = false;
   let shouldShowWishList = false;
 
-  function showBookList() {
-    shouldShowBookList = !shouldShowBookList;
+  function closePopout() {
+    shouldShowFullBookList = false;
+    shouldShowActiveBookList = false;
+    shouldShowWishList = false;
+  }
+
+  function showActiveBookList() {
+    shouldShowActiveBookList = !shouldShowActiveBookList;
+  }
+
+  function showFullBookList() {
+    shouldShowFullBookList = !shouldShowFullBookList;
   }
 
   function showWishList() {
     shouldShowWishList = !shouldShowWishList;
   }
 
+  function handleActiveBookSelected(event)  {
+    let selectedBook = event.detail;
+    console.log(selectedBook);
+  }
+
   function handleOwnedBookSelected(event)  {
-    let selectedBook = event.detail
-    console.log(selectedBook)
-    showBookList()
+    let selectedBook = event.detail;
+    console.log(selectedBook);
   }
 
   function handleWishListBookSelected(event)  {
-    let selectedBook = event.detail
-    console.log(selectedBook)
-    showWishList()
+    let selectedBook = event.detail;
+    console.log(selectedBook);
   }
 
   function handleBookListClosed(event)  {
-    showBookList()
+    closePopout();
   }
 
   function handleWishListClosed(event)  {
-    showWishList()
+    closePopout();
   }
 
 </script>
@@ -42,11 +55,11 @@ import WishList from './WishList.svelte';
     <h1>Library<br/>Companion</h1>
     <div id="mainDiv">        
         <div id="buttonContainer">
-            <button class="mainButton" on:click={showBookList}>
+            <button class="mainButton" on:click={showActiveBookList}>
                 Update a book
             </button>
             <br />
-            <button class="mainButton" on:click={showBookList}>
+            <button class="mainButton" on:click={showFullBookList}>
                 View full book list
             </button>
             <br />
@@ -55,17 +68,22 @@ import WishList from './WishList.svelte';
             </button>
         </div>
     </div>
-    
-    {#if shouldShowBookList}
-        <Popout>
-            <BookList on:bookSelected={handleOwnedBookSelected} on:listClosed={handleBookListClosed} />
-        </Popout>
+  
+    {#if shouldShowFullBookList}
+      <Popout>
+          <BookList activeOnly={false} on:bookSelected={handleActiveBookSelected} on:listClosed={handleBookListClosed} />
+      </Popout>
+    {/if}
+    {#if shouldShowActiveBookList}
+      <Popout>
+          <BookList activeOnly={true} on:bookSelected={handleOwnedBookSelected} on:listClosed={handleBookListClosed} />
+      </Popout>
     {/if}
     {#if shouldShowWishList}
-    <Popout>
-        <WishList on:bookSelected={handleWishListBookSelected} on:listClosed={handleWishListClosed} />
-    </Popout>
-{/if}
+      <Popout>
+          <WishList on:bookSelected={handleWishListBookSelected} on:listClosed={handleWishListClosed} />
+      </Popout>
+    {/if}
 </main>
 
 

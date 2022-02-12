@@ -1,48 +1,52 @@
 {
   "books": [
     {
-      "name": "Test name 1",
-      "isbn": "Test isbn 1",
-      "author": "Test author 1",
-      "length": "Test length 1",
-      "genre": "Test genre 1",
-      "description": "Test description 1",
+      "name": "Cosmos",
+      "isbn": "978-0-345-53943-4",
+      "authorFirstName": "Carl",
+      "authorLastName": "Sagan",
+      "length": 396,
+      "genre": "Science and Technology",
+      "description": "This work is the story of 15 billion years of cosmic evolution, transforming matter and life into consciousness, how science and civilization grew up together and the forces and individuals who helped shape modern science. The book aims to make scientific ideas accesssible and exciting. It is based on the television series of the same name. Subjects covered include the ancient library of Alexandria, the death of the sun, the evolution of galaxies, space missions and hieroglyphics.",
       "isStarted": true,
       "isCompleted": false,
-      "currentPage": 420
+      "currentPage": 108
     },
     {
-      "name": "Test name 2",
-      "isbn": "Test isbn 2",
-      "author": "Test author 2",
-      "length": "Test length 2",
-      "genre": "Test genre 2",
-      "description": "Test description 2",
-      "isStarted": true,
+      "name": "Pale Blue Dot: A Vision of the Human Future in Space",
+      "isbn": "978-0345376596",
+      "authorFirstName": "Carl",
+      "authorLastName": "Sagan",
+      "length": 384,
+      "genre": "Science and Technology",
+      "description": "In Cosmos, the late astronomer Carl Sagan cast his gaze over the magnificent mystery of the Universe and made it accessible to millions of people around the world. Now in this stunning sequel, Carl Sagan completes his revolutionary journey through space and time. \rFuture generations will look back on our epoch as the time when the human race finally broke into a radically new frontier—space. In Pale Blue Dot, Sagan traces the spellbinding history of our launch into the cosmos and assesses the future that looms before us as we move out into our own solar system and on to distant galaxies beyond. The exploration and eventual settlement of other worlds is neither a fantasy nor luxury, insists Sagan, but rather a necessary condition for the survival of the human race.",
+      "isStarted": false,
       "isCompleted": false,
-      "currentPage": 420
+      "currentPage": 0
     },
     {
-      "name": "Test name 3",
-      "isbn": "Test isbn 3",
-      "author": "Test author 3",
-      "length": "Test length 3",
-      "genre": "Test genre 3",
-      "description": "Test description 3",
+      "name": "The Illustrated \"A Brief History of Time\" and \"The Universe in a Nutshell\"",
+      "isbn": "978-0307291226",
+      "authorFirstName": "Stephen",
+      "authorLastName": "Hawking",
+      "length": 464 ,
+      "genre": "Science and Technology",
+      "description": "Illustrated edition of Hawking's works, \"A Brief History of Time\" and \"The Universe in a Nutshell\"",
       "isStarted": true,
       "isCompleted": false,
-      "currentPage": 420
+      "currentPage": 25
     },
     {
-      "name": "Test name 4",
-      "isbn": "Test isbn 4",
-      "author": "Test author 4",
-      "length": "Test length 4",
-      "genre": "Test genre 4",
-      "description": "Test description 4",
+      "name": "How to Die in Space: A Journey Through Dangerous Astrophysical Phenomena",
+      "isbn": "978-1643137643",
+      "authorFirstName": "Paul",
+      "authorLastName": "Sutter",
+      "length": 336,
+      "genre": "Science and Technology",
+      "description": "A brilliant and breathtakingly vivid tour of the universe, describing the physics of the dangerous, the deadly, and the scary in the cosmos. \rSo you’ve fallen in love with space and now you want to see it for yourself, huh? You want to witness the birth of a star, or visit the black hole at the center of our galaxy? You want to know if there are aliens out there, or how to travel through a wormhole? You want the wonders of the universe revealed before your very eyes? \rWell stop, because all that will probably kill you. \rFrom mundane comets in our solar backyard to exotic remnants of the Big Bang, from dying stars to young galaxies, the universe may be beautiful, but it’s treacherous. Through metaphors and straightforward language, it breathes life into astrophysics, unveiling how particles and forces and fields interplay to create the drama in the heavens above us.",
       "isStarted": true,
       "isCompleted": false,
-      "currentPage": 420
+      "currentPage": 47
     }
   ]
 }

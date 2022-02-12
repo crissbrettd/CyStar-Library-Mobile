@@ -2,11 +2,18 @@
   import { createEventDispatcher } from 'svelte';
   import Book from './Book.svelte';
 
+  export let activeOnly = false;
+
   const dispatch = createEventDispatcher();
   
   async function loadBookList() {
     const list = await fetch('BookList.json').then(res => res.json());
-    return list.books
+    if (activeOnly) {
+      return list.books.filter(book => book.isStarted == true && book.isCompleted == false);
+    }
+    else {
+      return list.books
+    }
   }
 
   function handleClickBook(event) {
@@ -26,7 +33,12 @@
 	  <p>Loading...</p>
   {:then book}
     {#each book as book}
-      {#if book.isStarted == true && book.isCompleted == false}
+      <!-- <Book {...book} on:clickBook={handleClickBook}/> -->
+      {#if activeOnly}
+        {#if !book.isActive}
+          <Book {...book} on:clickBook={handleClickBook}/>
+        {/if}
+      {:else}
         <Book {...book} on:clickBook={handleClickBook}/>
       {/if}
     {/each}
